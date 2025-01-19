@@ -1,5 +1,7 @@
 package org.example.Bean;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.example.service.S3Service;
 import org.primefaces.model.file.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,15 +28,9 @@ public class FileUploadBean implements Serializable {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
+    @Getter
+    @Setter
     private UploadedFile file;
-
-    public UploadedFile getFile() {
-        return file;
-    }
-
-    public void setFile(UploadedFile file) {
-        this.file = file;
-    }
 
     public void upload() {
         if (file != null) {
